@@ -14,20 +14,22 @@ let Vehicle = function(e,f,g,avg,m){
   }
 
   function fill(p){
-    let 
+
   }
-
   function drive(h){
-    milesDriven += (h*avg);
+    let burnedgas = h*engineEfficiency()
+    fuel -= burnedgas;
 
-    fuel -= (m*h)
-
-    if(f == 0){
-      console.log("You are out of fuel");
-      return f == 0;
+    if(fuel == 0){
+      milesDriven += h*avg;
     }
-    else if(f > 0){
-      console.log("You still have fuel");
+    else if(fuel > 0){
+      milesDriven += h*avg;
+
+    }
+    else if(fuel =< 0){
+      //milesDriven to do
+      fuel =0;
     }
   }
 
