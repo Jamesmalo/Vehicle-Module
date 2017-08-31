@@ -6,30 +6,29 @@ let Vehicle = function(e,f,g,avg,m){
   let milesDriven = m;
 
   function totalMiles(){
-
+    return milesDriven;
   }
 
   function fuelLeft(){
-
+    return fuel;
   }
 
   function fill(p){
+    fuel += p;
 
+    if(fuel > 1){
+      fuel = 1;
+    }
   }
   function drive(h){
-    let burnedgas = h*engineEfficiency()
-    fuel -= burnedgas;
+    let burnedgas = h*engineEfficiency();
 
-    if(fuel == 0){
+    if(burnedgas <= fuel ){
       milesDriven += h*avg;
     }
-    else if(fuel > 0){
-      milesDriven += h*avg;
-
-    }
-    else if(fuel =< 0){
-      //milesDriven to do
-      fuel =0;
+    else if(fuel <= 0){
+      milesDriven += avg*fuel;
+      fuel = 0;
     }
   }
 
@@ -37,10 +36,10 @@ let Vehicle = function(e,f,g,avg,m){
     if(e == 4){
       return 1;
     }
-    if else(e == 6){
+    else if(e == 6){
       return 1.2;
     }
-    if else(e == 8){
+    else if(e == 8){
       return 1.36;
     }
     else{
