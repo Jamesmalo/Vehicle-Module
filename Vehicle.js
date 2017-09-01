@@ -25,8 +25,9 @@ let Vehicle = function(e,f,g,avg,m){
 
     if(burnedgas <= fuel ){
       milesDriven += h*avg;
+      fuel -= h*engineEfficiency();
     }
-    else if(fuel <= 0){
+    else{
       milesDriven += avg*fuel;
       fuel = 0;
     }
@@ -43,8 +44,10 @@ let Vehicle = function(e,f,g,avg,m){
       return 1.36;
     }
     else{
-      return console.log("null");
+      return console.log("That size engine is not available.");
     }
   }
   return{totalMiles,fuelLeft,fill,drive}
 }
+
+module.exports = Vehicle;
